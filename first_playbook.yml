@@ -1,8 +1,16 @@
 ---
-- name: Execute show arp on Spine
+- name: Execute show interface status on Spine
   hosts: Spine
   gather_facts: no
   tasks:
   - raw: "show interface status"
+    register: show
+  - debug: var=show.stdout_lines
+
+- name: Execute show arp on Spine
+  hosts: Spine
+  gather_facts: no
+  tasks:
+  - raw: "show arp"
     register: show
   - debug: var=show.stdout_lines

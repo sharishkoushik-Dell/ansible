@@ -1,0 +1,1 @@
+ansible-playbook -i ~/Ansible/shots -u admin $1

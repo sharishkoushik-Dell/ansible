@@ -1,0 +1,1 @@
+ansible $1 -i ~/Ansible/shots -m raw -u admin -a "$2 $3"
