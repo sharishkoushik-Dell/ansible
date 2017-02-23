@@ -1,0 +1,10 @@
+---
+- hosts : switches
+  connection : local
+  gather_facts : no
+
+  tasks :
+  - name : "Get Dell EMC OS9 show version"
+    dellos9_config : 
+        commands : ['hostname {{hostname}}']
+        provider : "{{cli}}"

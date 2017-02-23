@@ -1,0 +1,11 @@
+---
+dellos_vlan :
+  Leaf1 :
+    vlan 100:
+      name : "Mgmt Network"
+      tagged_members :
+      - TenGigabitEthernet 1/16
+      untagged_members :
+      - TenGigabitEthernet 1/18
+      member_state : present
+      state : present
