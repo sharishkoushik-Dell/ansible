@@ -1,6 +1,2 @@
 [Spine]
-100.67.170.32
-
-[Leaf]
-100.67.170.31
-
+100.67.170.32 ansible_net_os_name="dellos9"
