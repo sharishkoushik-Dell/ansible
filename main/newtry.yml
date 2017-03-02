@@ -1,0 +1,20 @@
+---
+- hosts : switches
+  connection : local
+  gather_facts : no
+
+  #tasks :
+  #- name : "Basic Configuration"
+    #dellos9_config :
+        ##commands : ['route-map spine-leaf permit 10', 'match ip address spine-leaf', 'exit', 'ip prefix-list spine-leaf', 'description Redistribute loopback and leaf networks', 'seq 5 permit 10.0.0.0/23 ge 32']
+        #commands:
+          #- route-map spine-leaf permit 10
+          #- match ip address spine-leaf
+          #- ip prefix-list spine-leaf
+          #- description Redistribute loopback and leaf networks
+          #- seq 5 permit 10.0.0.0/23 ge 32
+          #- seq 10 permit 10.0.0.0/8 ge 26
+        #provider : "{{cli}}"
+
+  roles :
+      - Dell-Networking.dellos-bgp
