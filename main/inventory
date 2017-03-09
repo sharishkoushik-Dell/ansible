@@ -1,3 +1,6 @@
-[switches]
+[Spine-switches]
 Spine1 ansible_host=100.67.170.32 ansible_net_os_name=dellos9
+
+[Leaf-switches]
+Leaf1 ansible_host=100.67.170.31 ansible_net_os_name=dellos9
 

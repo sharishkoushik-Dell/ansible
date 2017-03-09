@@ -7,3 +7,4 @@ cli :
     authorize : yes
     auth_pass : false
     transport : cli
+intface : TenGigabitEthernet 1/19

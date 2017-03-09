@@ -1,9 +1,0 @@
----
-hostname : Spine1
-cli :
-    host : "{{ ansible_host }}"
-    username : admin
-    password : Dell!234
-    authorize : yes
-    auth_pass : false
-    transport : cli
