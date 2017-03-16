@@ -1,0 +1,53 @@
+---
+dellos_pl:
+  Spine1:
+    - type: ipv4
+      name: spine-leaf
+      description: Redistribute loopback and leaf networks 
+      seqlist:
+        - number: 5
+          ispermit: true
+          netnum: 10.0.0.0
+          mask: 23
+          condition: ge
+          prelen: 32
+        - number: 10
+          ispermit: true
+          netnum: 10.0.0.0
+          mask: 8
+          condition: ge
+          prelen: 26
+  Leaf1:
+    - type: ipv4
+      name: spine-leaf
+      description: Redistribute loopback and leaf networks 
+      seqlist:
+        - number: 5
+          ispermit: true
+          netnum: 10.0.0.0
+          mask: 23
+          condition: ge
+          prelen: 32
+        - number: 10
+          ispermit: true
+          netnum: 10.0.0.0
+          mask: 8
+          condition: ge
+          prelen: 24
+  Leaf2:
+    - type: ipv4
+      name: spine-leaf
+      description: Redistribute loopback and leaf networks 
+      seqlist:
+        - number: 5
+          ispermit: true
+          netnum: 10.0.0.0
+          mask: 23
+          condition: ge
+          prelen: 32
+        - number: 10
+          ispermit: true
+          netnum: 10.0.0.0
+          mask: 8
+          condition: ge
+          prelen: 24

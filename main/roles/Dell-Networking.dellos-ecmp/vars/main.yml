@@ -1,0 +1,16 @@
+---
+dellos_ecmp:
+  Leaf1:
+    ecmp 1:
+      interface:
+        - fortyGigE 1/49
+        - fortyGigE 1/51
+      link_bundle_monitor: enable
+      state: present 
+  Leaf2:
+    ecmp 1:
+      interface:
+        - fortyGigE 1/49
+        - fortyGigE 1/51
+      link_bundle_monitor: enable
+      state: present 
