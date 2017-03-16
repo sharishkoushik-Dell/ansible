@@ -1,0 +1,24 @@
+---
+# vars file for Dell-Networking.dellos-vlt
+dellos_vlt:
+  leaf2:
+    domain: 1
+    backupdestination: 100.67.170.31
+    destination_type: ipv4
+    priority:
+    channelid: 127
+    unitid: 0
+    vrfname:
+    state: present
+    peerrouting: True
+
+  leaf1:
+    domain: 1
+    backupdestination: 100.67.170.30
+    destination_type: ipv4
+    priority:
+    channelid: 127
+    unitid: 1
+    vrfname:
+    state: present
+    peerrouting: True

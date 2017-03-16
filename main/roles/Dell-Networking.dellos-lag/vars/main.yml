@@ -1,0 +1,81 @@
+---
+# vars file for Dell-Networking.dellos-lag
+
+dellos_lag:
+ Leaf1:
+    Po 1:
+      type: dynamic
+      min_links:
+      hash:
+      channel_members:
+        - TenGigabitEthernet 1/1
+      state: present
+      members_state: present
+    Po 2:
+      type: dynamic
+      min_links:
+      hash:
+      channel_members:
+        - TenGigabitEthernet 1/2
+      state: present
+      members_state: present
+    Po 3:
+      type: dynamic
+      min_links:
+      hash:
+      channel_members:
+        - TenGigabitEthernet 1/3
+      state: present
+    Po 4:
+      type: dynamic
+      min_links:
+      hash:
+      channel_members:
+        - TenGigabitEthernet 1/4
+      state: present
+    Po 127:
+      type: static
+      min_links:
+      hash:
+      channel_members:
+        - fortyGigE 1/53, 1/54
+      state: present
+
+
+ Leaf2:
+    Po 1:
+      type: static
+      min_links:
+      hash:
+      channel_members:
+        - TenGigabitEthernet 1/1
+      state: present
+      members_state: present
+    Po 2:
+      type: dynamic
+      min_links:
+      hash:
+      channel_members:
+        - TenGigabitEthernet 1/2
+      state: present
+    Po 3:
+      type: dynamic
+      min_links:
+      hash:
+      channel_members:
+        - TenGigabitEthernet 1/3
+      state: present
+    Po 4:
+      type: dynamic
+      min_links:
+      hash:
+      channel_members:
+        - TenGigabitEthernet 1/4
+      state: present
+    Po 127:
+      type: static
+      min_links:
+      hash:
+      channel_members:
+        - fortyGigE 1/53, 1/54
+      state: present
