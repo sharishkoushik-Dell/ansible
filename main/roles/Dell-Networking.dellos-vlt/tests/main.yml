@@ -1,0 +1,13 @@
+---
+dellos_vlt:
+  leaf3:
+    domain: 3
+    backupdestination: 1.1.1.1
+    destination_type: ipv4
+    priority: 1
+    channelid: 100
+    vrfname: 
+    unitid: 1
+    state: present
+
+

@@ -1,0 +1,67 @@
+#jinja2: trim_blocks: True,lstrip_blocks: True
+{################################
+Purpose:
+Configure VLT on Devices.
+
+dellos_vlt:
+  hostname:
+    - domain: 1
+      backupdestination: 192.168.1.1
+      priority: 1
+      channelid: 101
+      vrfname: VLTi-KEEPALIVE
+      unitid: 0
+      state: present
+
+################################}
+{% if (dellos_vlt is defined and dellos_vlt) and (hostname in dellos_vlt) %}
+{% set vlt = dellos_vlt[hostname] %}
+  {% if vlt.domain is defined and vlt.domain %}
+    {% if vlt.state is defined and vlt.state == 'absent'  %}
+no vlt domain {{ vlt.domain }}
+    {% else %}
+vlt domain {{ vlt.domain }}
+    {% if vlt.backupdestination is defined %}
+      {% if vlt.backupdestination %}
+        {% if ( vlt.backupdestination | ipv6 ) %}
+ back-up destination ipv6 {{ vlt.backupdestination }}
+        {% elif ( vlt.backupdestination | ipv4 ) %}
+          {% if vlt.vrfname is defined and vlt.vrfname %}
+ back-up destination {{ vlt.backupdestination }} vrf {{ vlt.vrfname }}
+          {% else %}
+ back-up destination {{ vlt.backupdestination }}
+          {% endif %}
+        {% endif %}
+      {% else %}
+ no back-up destination
+      {% endif %}
+    {% endif %}
+    {% if vlt.channelid is defined %}
+      {% if vlt.channelid %}
+ peer-link port-channel {{ vlt.channelid  }}
+      {% else %}
+ no peer-link
+      {% endif %}
+    {% endif %}
+    {% if vlt.priority is defined %}
+      {% if vlt.priority %}
+ primary-priority {{ vlt.priority }}
+      {% else %}
+ no primary-priority
+      {% endif %}
+    {% endif %}
+    {% if vlt.unitid is defined %}
+ unit-id {{ vlt.unitid }}
+    {% else %}
+ no unit-id
+    {% endif %}
+    {% if vlt.peerrouting is defined %}
+      {% if vlt.peerrouting == True %}
+ peer-routing
+      {% else %}
+ no peer-routing
+      {% endif %}
+    {% endif %}
+    {% endif %}
+  {% endif %}
+{% endif %}

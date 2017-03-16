@@ -1,0 +1,118 @@
+---
+# vars file for Dell-Networking.dellos-interface
+dellos_interface:
+  Leaf2:
+    TenGigabitEthernet 1/1:
+      desc: "To R730-2 100.67.170.2"
+      admin: up
+    TenGigabitEthernet 1/2:
+      desc: "To R730-2 100.67.170.2"
+      admin: up
+    TenGigabitEthernet 1/3:
+      desc: "To R730-2 100.67.170.2"
+      admin: up
+    TenGigabitEthernet 1/4:
+      desc: "To R730-2 100.67.170.2"
+      admin: up
+    fortyGigE 1/49:
+      desc: "Connected to spine-1"
+      mtu: 
+      portmode:
+      admin: up
+      ip_and_mask: 192.168.1.7/31
+    fortyGigE 1/53:
+      desc: "VLTi"
+      admin: up
+    fortyGigE 1/54:
+      desc: "VLTi"
+      admin: up
+    Port-channel 1:
+      desc: "To R730-2 100.67.170.2"
+      switchport: True
+      portmode: "hybrid"
+      vlt_peer: 1
+      admin: up
+    Port-channel 2:
+      desc: "To R730-2 100.67.170.2"
+      switchport: True
+      portmode: "hybrid"
+      vlt_peer: 2
+      admin: up
+    Port-channel 3:
+      desc: "To R730-4 100.67.170.4"
+      switchport: True
+      portmode: "hybrid"
+      vlt_peer: 3
+      admin: up
+    Port-channel 4:
+      desc: "To R730-4 100.67.170.4"
+      switchport: True
+      portmode: "hybrid"
+      vlt_peer: 4
+      admin: up
+    Port-channel 127:
+      desc: "VLTi"
+      admin: up
+
+  Leaf1:
+    TenGigabitEthernet 1/1:
+      desc: "To R730-2 100.67.170.2"
+      admin: up
+    TenGigabitEthernet 1/2:
+      desc: "To R730-2 100.67.170.2"
+      admin: up
+    TenGigabitEthernet 1/3:
+      desc: "To R730-2 100.67.170.2"
+      admin: up
+    TenGigabitEthernet 1/4:
+      desc: "To R730-2 100.67.170.2"
+      admin: up
+    fortyGigE 1/49:
+      desc: "Connected to spine-1"
+      mtu: 
+      portmode:
+      admin: up
+      ip_and_mask: 192.168.1.5/31
+    fortyGigE 1/53:
+      desc: "VLTi"
+      admin: up
+    fortyGigE 1/54:
+      desc: "VLTi"
+      admin: up
+    Port-channel 1:
+      desc: "To R730-2 100.67.170.2"
+      switchport: True
+      portmode: "hybrid"
+      vlt_peer: 1
+      admin: up
+    Port-channel 2:
+      desc: "To R730-2 100.67.170.2"
+      switchport: True
+      portmode: "hybrid"
+      vlt_peer: 2
+      admin: up
+    Port-channel 3:
+      desc: "To R730-4 100.67.170.4"
+      switchport: True
+      portmode: "hybrid"
+      vlt_peer: 3
+      admin: up
+    Port-channel 4:
+      desc: "To R730-4 100.67.170.4"
+      switchport: True
+      portmode: "hybrid"
+      vlt_peer: 4
+      admin: up
+    Port-channel 127:
+      desc: "VLTi"
+      admin: up
+
+  Spine1:
+    fortyGigE 1/1:
+      desc: "Rack1_Leaf_A"
+      admin: up
+      ip_and_mask: 192.168.1.0/31
+    fortyGigE 1/2:
+      desc: "Rack1_Leaf_B"
+      admin: up
+      ip_and_mask: 192.168.1.2/31
