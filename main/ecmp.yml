@@ -1,0 +1,6 @@
+---
+- hosts : Leaf-switches
+  connection : local
+  gather_facts : no
+  roles : 
+    - Dell-Networking.dellos-ecmp
