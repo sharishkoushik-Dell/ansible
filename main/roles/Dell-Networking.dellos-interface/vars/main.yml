@@ -19,7 +19,7 @@ dellos_interface:
       mtu: 
       portmode:
       admin: up
-      ip_and_mask: 192.168.1.7/31
+      ip_and_mask: 192.168.1.1/31
     fortyGigE 1/53:
       desc: "VLTi"
       admin: up
@@ -72,7 +72,7 @@ dellos_interface:
       mtu: 
       portmode:
       admin: up
-      ip_and_mask: 192.168.1.5/31
+      ip_and_mask: 192.168.1.3/31
     fortyGigE 1/53:
       desc: "VLTi"
       admin: up

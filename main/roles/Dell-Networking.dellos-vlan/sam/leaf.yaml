@@ -1,0 +1,5 @@
+---
+- hosts: leaf1
+  roles:
+     - Dell-Networking.dellos-vlan
+

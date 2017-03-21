@@ -1,0 +1,17 @@
+---
+# vars file for Dell-Networking.dellos-bgp, below gives a sample configuration
+
+dellos_ospf:
+  Leaf2:
+    process: 12
+    state: present
+    network:
+       - ip_address: 1.1.1.0
+         netmask: 255.255.255.0
+         area: 0
+         state: present
+       - ip_address: 2.2.2.0
+         netmask: 255.255.255.0
+         area: 1
+         state: present
+

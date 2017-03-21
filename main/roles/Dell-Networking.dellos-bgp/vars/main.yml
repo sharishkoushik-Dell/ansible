@@ -28,42 +28,14 @@ dellos_bgp:
         - option: bfd
       - ip: 192.168.1.1
         type: ipv4
-        remote_asn: 64701
+        remote_asn: 64704
         peergroup: spine-leaf
         peergroup_state: present
         type_options:
         - option: nshutdown
       - ip: 192.168.1.3
         type: ipv4
-        remote_asn: 64702
-        peergroup: spine-leaf
-        peergroup_state: present
-        type_options:
-        - option: nshutdown
-      - ip: 192.168.1.5
-        type: ipv4
         remote_asn: 64703
-        peergroup: spine-leaf
-        peergroup_state: present
-        type_options:
-        - option: nshutdown
-      - ip: 192.168.1.7
-        type: ipv4
-        remote_asn: 64704
-        peergroup: spine-leaf
-        peergroup_state: present
-        type_options:
-        - option: nshutdown
-      - ip: 192.168.1.9
-        type: ipv4
-        remote_asn: 64705
-        peergroup: spine-leaf
-        peergroup_state: present
-        type_options:
-        - option: nshutdown
-      - ip: 192.168.1.11
-        type: ipv4
-        remote_asn: 64706
         peergroup: spine-leaf
         peergroup_state: present
         type_options:
@@ -99,16 +71,9 @@ dellos_bgp:
         - option: advertisement-interval 
         - option: nshutdown
         - option: bfd
-      - ip: 192.168.1.4
+      - ip: 192.168.1.2
         type: ipv4
-        remote_asn: 64701
-        peergroup: spine-leaf
-        peergroup_state: present
-        type_options:
-        - option: nshutdown
-      - ip: 192.168.2.4
-        type: ipv4
-        remote_asn: 64702
+        remote_asn: 64601
         peergroup: spine-leaf
         peergroup_state: present
         type_options:
@@ -144,16 +109,9 @@ dellos_bgp:
         - option: advertisement-interval 
         - option: nshutdown
         - option: bfd
-      - ip: 192.168.1.6
+      - ip: 192.168.1.0
         type: ipv4
         remote_asn: 64601
-        peergroup: spine-leaf
-        peergroup_state: present
-        type_options:
-        - option: nshutdown
-      - ip: 192.168.2.6
-        type: ipv4
-        remote_asn: 64602
         peergroup: spine-leaf
         peergroup_state: present
         type_options:
