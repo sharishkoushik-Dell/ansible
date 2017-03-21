@@ -79,13 +79,13 @@ router bgp {{ bgp_vars.asn }}
     {% endif %}
   {% endif %}
 
-  #{% if bgp_vars.maxpath_ebgp is defined %}
-    #{% if bgp_vars.maxpath_ebgp %}
- #maximum-paths ebgp {{ bgp_vars.maxpath_ebgp }}
-    #{% else %}
- #no maximum-paths ebgp
-    #{% endif %}
-  #{% endif %}
+  {% if bgp_vars.maxpath_ebgp is defined %}
+    {% if bgp_vars.maxpath_ebgp %}
+ maximum-paths ebgp {{ bgp_vars.maxpath_ebgp }}
+    {% else %}
+ no maximum-paths ebgp
+    {% endif %}
+  {% endif %}
   
   {% if bgp_vars.maxpath_ibgp is defined %}
     {% if bgp_vars.maxpath_ibgp %}
@@ -94,13 +94,6 @@ router bgp {{ bgp_vars.asn }}
  no maximum-paths ibgp
     {% endif %}
   {% endif %}
-
-  {% if bgp_vars.graceful_restart is defined and bgp_vars.graceful_restart %} 
-    {% if bgp_vars.graceful_restart.state is defined and bgp_vars.graceful_restart.state %}
- bgp graceful-restart 
-    {% endif %}
-  {% endif %} 
-    
 
   {% if bgp_vars.best_path is defined and bgp_vars.best_path %}
     {% if bgp_vars.best_path.as_path is defined and bgp_vars.best_path.as_path %}
@@ -193,24 +186,6 @@ router bgp {{ bgp_vars.asn }}
               {% endif %}
             {% endif %}
           {% endif %}
-
-          {% if neighbor.type_options is defined and neighbor.type_options %}
-            {% for opt in neighbor.type_options %}
-              {% if opt.option is defined %}
-                {% if opt.option == "fall-over" %}
- neighbor {{ tag_or_ip }} fall-over
-                {% elif opt.option == "advertisement-interval" %}
- neighbor {{ tag_or_ip }} advertisement-interval 1
-                {% elif opt.option == "nshutdown" %}
- neighbor {{ tag_or_ip }} no shutdown
-                {% elif opt.option == "bfd" %}
- neighbor {{ tag_or_ip }} bfd
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-
-
         {% elif neighbor.type == "peergroup" %}
           {% if neighbor.name is defined and neighbor.name %}
             {% set tag_or_ip = neighbor.name %}
@@ -237,21 +212,6 @@ router bgp {{ bgp_vars.asn }}
                 {% endif %}
               {% endif %}
             {% endif %}
-	    {% if neighbor.type_options is defined and neighbor.type_options %}
-	      {% for opt in neighbor.type_options %}
-                {% if opt.option is defined %}
-	          {% if opt.option == "fall-over" %}
- neighbor {{ tag_or_ip }} fall-over
-                  {% elif opt.option == "advertisement-interval" %}
- neighbor {{ tag_or_ip }} advertisement-interval 1 
-                  {% elif opt.option == "nshutdown" %}
- neighbor {{ tag_or_ip }} no shutdown		  
-                  {% elif opt.option == "bfd" %}
- neighbor {{ tag_or_ip }} bfd
-                  {% endif %}
-                {% endif %}
-	      {% endfor %}  	
-	    {% endif %}
           {% endif %}
         {% endif %}
         {% if tag_or_ip is defined and tag_or_ip %}
@@ -334,21 +294,14 @@ router bgp {{ bgp_vars.asn }}
             {% if route.state is defined and route.state == "absent" %}
  no redistribute {{ route.route_type }}
             {% else %}
-	      {% if route.route_map is defined and route.route_map == "present" %} 
- redistribute {{route.route_type}} route-map spine-leaf 
-              {% else %} 
- redistribute {{ route.route_type }} 
-              {% endif %} 
+ redistribute {{ route.route_type }}
             {% endif %}
           {% endif %}
         {% endif %}
-	#{% if route.route_map is defined and route.route_map %}
- #redistribute {{route.route_type}} route-map spine-leaf
-        #{% endif %}
       {% endif %}
     {% endfor %}
   {% endif %}
 
 {% endif %}
 {% endif %}
-#{% endif %}
+{% endif %}

@@ -1,0 +1,10 @@
+---
+hostname: leaf1
+provider:
+  host: "{{hostname}}"
+  username: admin
+  password: Dell!234
+  authorize: yes
+  auth_pass: false
+  transport: cli
+

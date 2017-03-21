@@ -1,5 +1,5 @@
 ---
-- hosts : spine1
+- hosts : Spine1
   connection : local
   gather_facts : no
 
